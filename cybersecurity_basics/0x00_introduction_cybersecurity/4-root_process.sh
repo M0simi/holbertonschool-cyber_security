@@ -1,2 +1,2 @@
 #!/bin/bash
-ps -u "$1" | grep -v '[[:space:]]0[[:space:]]*0[[:space:]]'
+ps -u "$1" --no-headers | grep -v ' 0 *0 '
