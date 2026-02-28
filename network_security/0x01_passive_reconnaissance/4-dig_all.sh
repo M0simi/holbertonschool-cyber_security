@@ -1,2 +1,2 @@
 #!/bin/bash
-dig $1 ANY +noall +answer
+for r in A NS SOA MX TXT; do dig $1 $r +noall +answer; done
