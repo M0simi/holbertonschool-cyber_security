@@ -1,2 +1,2 @@
 #!/bin/bash
-subfinder -silent -d $1 | tee >(subfinder -silent -d $1 -active -oI > $1.txt)
+subfinder -silent -d $1 | tee >(while read h; do ip=$(dig $h +short | head -n1); echo $h,$ip; done > $1.txt)
