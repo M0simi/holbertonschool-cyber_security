@@ -1,2 +1,2 @@
 #!/bin/bash
-for r in A NS SOA MX TXT; do dig $1 $r +noall +answer; done
+dig @8.8.8.8 $1 ANY +noall +answer
