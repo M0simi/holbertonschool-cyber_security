@@ -1,2 +1,2 @@
 #!/bin/bash
-subfinder -silent -d $1 | tee /dev/tty | xargs -I{} sh -c 'echo -n "{},"; dig +short {} | head -n1' > $1.txt
+subfinder -d $1 -silent | tee >(while read sub; do echo "$sub"; dig +short $sub | head -1 | sed "s/^/$sub,/g"; done | grep "," > $1.txt)
